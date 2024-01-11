@@ -12,7 +12,7 @@ import { PanificadoraUcsmModule } from './modules/panificadora-ucsm/panificadora
     ComoencasaUcsmModule,
     ElcholoUcsmModule,
     PanificadoraUcsmModule,
-    MongooseModule.forRoot(process.env.MONGO_URL),
+    MongooseModule.forRoot(process.env.MONGO_URL_NESTJS),
   ],
 })
 export class AppModule {}
