@@ -5,6 +5,7 @@ import { CeprobisUcsmModule } from './modules/ceprobis-ucsm/ceprobis-ucsm.module
 import { ComoencasaUcsmModule } from './modules/comoencasa-ucsm/comoencasa-ucsm.module';
 import { ElcholoUcsmModule } from './modules/elcholo-ucsm/elcholo-ucsm.module';
 import { PanificadoraUcsmModule } from './modules/panificadora-ucsm/panificadora-ucsm.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
@@ -12,7 +13,10 @@ import { PanificadoraUcsmModule } from './modules/panificadora-ucsm/panificadora
     ComoencasaUcsmModule,
     ElcholoUcsmModule,
     PanificadoraUcsmModule,
-    MongooseModule.forRoot(process.env.MONGO_URL_NESTJS),
+    MongooseModule.forRootAsync({
+      useFactory: () => ({ uri: process.env.MONGO_URL_NESTJS }),
+    }),
+    ConfigModule.forRoot({ isGlobal: true }),
   ],
 })
 export class AppModule {}

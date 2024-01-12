@@ -11,7 +11,7 @@ services:
     ports:
       - '27017:27017'
     volumes:
-      # - ./script-init.js:/docker-entrypoint-initdb.d/script-init.js
+      - ./script-init.js:/docker-entrypoint-initdb.d/script-init.js
       - ./data/mongo:/data/db
       - ./data/backup:/backup
       - ./data/mongo/log:/var/log/mongodb/
@@ -35,7 +35,7 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    image: haroldosorioflores/catoexpress:api-prod.1.0
+    # image: haroldosorioflores/catoexpress:api-prod.1.0
     volumes:
       - ./dist:/app/dist/
     env_file:
