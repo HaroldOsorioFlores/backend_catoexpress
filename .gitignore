@@ -40,4 +40,3 @@ lerna-debug.log*
 script-init.js
 .dockerignore
 .env
-.editorConfig
