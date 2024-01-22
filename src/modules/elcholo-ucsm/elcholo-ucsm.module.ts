@@ -1,11 +1,13 @@
 import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
+
 import { ElcholoUcsmService } from './elcholo-ucsm.service';
 import { ElcholoUcsmController } from './elcholo-ucsm.controller';
-import { MongooseModule } from '@nestjs/mongoose';
 import {
   ElcholoProduct,
   ElcholoProductSchema,
 } from './entities/elcholo-ucsm.entity';
+import { CloudinaryService } from '../cloudinary/cloudinary.service';
 
 @Module({
   imports: [
@@ -14,6 +16,6 @@ import {
     ]),
   ],
   controllers: [ElcholoUcsmController],
-  providers: [ElcholoUcsmService],
+  providers: [ElcholoUcsmService, CloudinaryService],
 })
 export class ElcholoUcsmModule {}

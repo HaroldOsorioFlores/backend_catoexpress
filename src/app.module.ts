@@ -6,6 +6,7 @@ import { ComoencasaUcsmModule } from './modules/comoencasa-ucsm/comoencasa-ucsm.
 import { ElcholoUcsmModule } from './modules/elcholo-ucsm/elcholo-ucsm.module';
 import { PanificadoraUcsmModule } from './modules/panificadora-ucsm/panificadora-ucsm.module';
 import { ConfigModule } from '@nestjs/config';
+import { CloudinaryModule } from './modules/cloudinary/cloudinary.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { ConfigModule } from '@nestjs/config';
       useFactory: () => ({ uri: process.env.MONGO_URL_NESTJS }),
     }),
     ConfigModule.forRoot({ isGlobal: true }),
+    CloudinaryModule,
   ],
 })
 export class AppModule {}

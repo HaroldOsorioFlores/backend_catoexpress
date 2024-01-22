@@ -7,6 +7,7 @@ import {
   PanificadoraProduct,
   PanificadoraProductSchema,
 } from './entities/panificadora-ucsm.entity';
+import { CloudinaryService } from '../cloudinary/cloudinary.service';
 
 @Module({
   imports: [
@@ -15,6 +16,6 @@ import {
     ]),
   ],
   controllers: [PanificadoraUcsmController],
-  providers: [PanificadoraUcsmService],
+  providers: [PanificadoraUcsmService, CloudinaryService],
 })
 export class PanificadoraUcsmModule {}

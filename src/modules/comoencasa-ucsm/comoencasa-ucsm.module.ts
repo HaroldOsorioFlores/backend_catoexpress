@@ -1,11 +1,13 @@
 import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
+
 import { ComoencasaUcsmService } from './comoencasa-ucsm.service';
 import { ComoencasaUcsmController } from './comoencasa-ucsm.controller';
-import { MongooseModule } from '@nestjs/mongoose';
 import {
   ComoencasaProduct,
   ComoencasaProductSchema,
 } from './entities/comoencasa-ucsm.entity';
+import { CloudinaryService } from '../cloudinary/cloudinary.service';
 
 @Module({
   imports: [
@@ -14,6 +16,6 @@ import {
     ]),
   ],
   controllers: [ComoencasaUcsmController],
-  providers: [ComoencasaUcsmService],
+  providers: [ComoencasaUcsmService, CloudinaryService],
 })
 export class ComoencasaUcsmModule {}

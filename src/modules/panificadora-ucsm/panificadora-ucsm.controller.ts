@@ -6,7 +6,11 @@ import {
   Patch,
   Param,
   Delete,
+  UseInterceptors,
+  UploadedFile,
+  NotFoundException,
 } from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
 
 import { PanificadoraUcsmService } from './panificadora-ucsm.service';
 import { CreatePanificadoraUcsmDto } from './dto/create-panificadora-ucsm.dto';
@@ -20,35 +24,63 @@ export class PanificadoraUcsmController {
   ) {}
 
   @Post()
+  @UseInterceptors(FileInterceptor('file'))
   async create(
     @Body() createPanificadoraUcsmDto: CreatePanificadoraUcsmDto,
+    @UploadedFile() file: Express.Multer.File,
   ): Promise<string> {
-    return await this.panificadoraUcsmService.create(createPanificadoraUcsmDto);
+    try {
+      return await this.panificadoraUcsmService.create(
+        createPanificadoraUcsmDto,
+        file,
+      );
+    } catch (error) {
+      throw new NotFoundException(error);
+    }
   }
 
   @Get()
   async findAll(): Promise<PanificadoraProduct[]> {
-    return await this.panificadoraUcsmService.findAll();
+    try {
+      return await this.panificadoraUcsmService.findAll();
+    } catch (error) {
+      throw new NotFoundException(error);
+    }
   }
 
   @Get(':id')
   async findOne(@Param('id') id: string): Promise<PanificadoraProduct> {
-    return await this.panificadoraUcsmService.findOne(id);
+    try {
+      return await this.panificadoraUcsmService.findOne(id);
+    } catch (error) {
+      throw new NotFoundException(error);
+    }
   }
 
   @Patch(':id')
+  @UseInterceptors(FileInterceptor('file'))
   async update(
     @Param('id') id: string,
     @Body() updatePanificadoraUcsmDto: UpdatePanificadoraUcsmDto,
+    @UploadedFile() file: Express.Multer.File,
   ): Promise<string> {
-    return await this.panificadoraUcsmService.update(
-      id,
-      updatePanificadoraUcsmDto,
-    );
+    try {
+      return await this.panificadoraUcsmService.update(
+        id,
+        updatePanificadoraUcsmDto,
+        file,
+      );
+    } catch (error) {
+      throw new NotFoundException(error);
+    }
   }
 
   @Delete(':id')
   async remove(@Param('id') id: string): Promise<string> {
-    return await this.panificadoraUcsmService.remove(id);
+    try {
+      return await this.panificadoraUcsmService.remove(id);
+    } catch (error) {
+      throw new NotFoundException(error);
+    }
   }
 }

@@ -1,5 +1,6 @@
-import { Prop } from '@nestjs/mongoose';
+import { Prop, Schema } from '@nestjs/mongoose';
 
+Schema({ timestamps: true });
 export class Product {
   @Prop()
   title: string;
@@ -13,9 +14,16 @@ export class Product {
   @Prop()
   price: number;
 
-  @Prop({ default: new Date().toLocaleString('PET') })
-  createdAt: string;
+  @Prop()
+  public_id: string;
 
-  @Prop({ default: new Date().toLocaleString('PET') })
-  updateAt: string;
+  @Prop({
+    default: () => new Date(),
+  })
+  createdAt: Date;
+
+  @Prop({
+    default: () => new Date(),
+  })
+  updatedAt: Date;
 }

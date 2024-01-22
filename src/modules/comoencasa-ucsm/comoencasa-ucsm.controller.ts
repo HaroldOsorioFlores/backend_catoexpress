@@ -6,7 +6,12 @@ import {
   Patch,
   Param,
   Delete,
+  UploadedFile,
+  UseInterceptors,
+  NotFoundException,
 } from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
+
 import { ComoencasaUcsmService } from './comoencasa-ucsm.service';
 import { CreateComoencasaUcsmDto } from './dto/create-comoencasa-ucsm.dto';
 import { UpdateComoencasaUcsmDto } from './dto/update-comoencasa-ucsm.dto';
@@ -17,32 +22,62 @@ export class ComoencasaUcsmController {
   constructor(private readonly comoencasaUcsmService: ComoencasaUcsmService) {}
 
   @Post()
+  @UseInterceptors(FileInterceptor('file'))
   async create(
     @Body() createComoencasaUcsmDto: CreateComoencasaUcsmDto,
+    @UploadedFile() file: Express.Multer.File,
   ): Promise<string> {
-    return await this.comoencasaUcsmService.create(createComoencasaUcsmDto);
+    try {
+      return await this.comoencasaUcsmService.create(
+        createComoencasaUcsmDto,
+        file,
+      );
+    } catch (error) {
+      throw new NotFoundException(error);
+    }
   }
 
   @Get()
   async findAll(): Promise<ComoencasaProduct[]> {
-    return await this.comoencasaUcsmService.findAll();
+    try {
+      return await this.comoencasaUcsmService.findAll();
+    } catch (error) {
+      throw new NotFoundException(error);
+    }
   }
 
   @Get(':id')
   async findOne(@Param('id') id: string): Promise<ComoencasaProduct> {
-    return await this.comoencasaUcsmService.findOne(id);
+    try {
+      return await this.comoencasaUcsmService.findOne(id);
+    } catch (error) {
+      throw new NotFoundException(error);
+    }
   }
 
   @Patch(':id')
   async update(
     @Param('id') id: string,
     @Body() updateComoencasaUcsmDto: UpdateComoencasaUcsmDto,
+    @UploadedFile() file: Express.Multer.File,
   ): Promise<string> {
-    return await this.comoencasaUcsmService.update(id, updateComoencasaUcsmDto);
+    try {
+      return await this.comoencasaUcsmService.update(
+        id,
+        updateComoencasaUcsmDto,
+        file,
+      );
+    } catch (error) {
+      throw new NotFoundException(error);
+    }
   }
 
   @Delete(':id')
   async remove(@Param('id') id: string): Promise<string> {
-    return await this.comoencasaUcsmService.remove(id);
+    try {
+      return await this.comoencasaUcsmService.remove(id);
+    } catch (error) {
+      throw new NotFoundException(error);
+    }
   }
 }
