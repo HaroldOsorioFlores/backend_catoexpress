@@ -58,12 +58,13 @@ export class CeprobisUcsmService {
       product,
       file,
     );
+    console.log('Imagen: ', image);
     await this.ceprobisProduct
       .findByIdAndUpdate(
         id,
         {
           ...updateCeprobisUcsmDto,
-          image,
+          ...image,
           updatedAt: new Date(),
         },
         { new: true },

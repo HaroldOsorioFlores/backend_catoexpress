@@ -60,7 +60,7 @@ export class ElcholoUcsmService {
     await this.elCholoProduct.findByIdAndUpdate(id, {
       ...updateElcholoUcsmDto,
       updatedAt: new Date(),
-      image,
+      ...image,
     });
 
     return 'Product update successfully';

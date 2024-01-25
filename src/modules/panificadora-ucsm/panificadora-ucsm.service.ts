@@ -59,7 +59,7 @@ export class PanificadoraUcsmService {
     await this.panificadoraProduct.findByIdAndUpdate(id, {
       ...updatePanificadoraUcsmDto,
       updatedAt: new Date(),
-      image,
+      ...image,
     });
 
     return `Product updated successfully`;

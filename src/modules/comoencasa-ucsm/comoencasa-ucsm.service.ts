@@ -60,7 +60,7 @@ export class ComoencasaUcsmService {
       id,
       {
         ...updateComoencasaUcsmDto,
-        image,
+        ...image,
         updatedAt: new Date(),
       },
       { new: true },
