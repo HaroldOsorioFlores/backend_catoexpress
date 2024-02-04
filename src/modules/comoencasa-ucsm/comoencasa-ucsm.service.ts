@@ -7,7 +7,7 @@ import { CreateComoencasaUcsmDto } from './dto/create-comoencasa-ucsm.dto';
 import { UpdateComoencasaUcsmDto } from './dto/update-comoencasa-ucsm.dto';
 import { CloudinaryService } from '../cloudinary/cloudinary.service';
 import { CloudinaryResponse } from '../cloudinary/cloudinary-response';
-import { ImageProduct } from 'src/shared/models/image.model';
+import { ImageProduct } from 'src/utils/models/image.model';
 
 @Injectable()
 export class ComoencasaUcsmService {

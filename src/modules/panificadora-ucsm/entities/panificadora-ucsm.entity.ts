@@ -1,11 +1,34 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
 
-import { Product } from 'src/shared/common/base-product.entity';
-
 export type PanificadoraProductDocument = HydratedDocument<PanificadoraProduct>;
-@Schema()
-export class PanificadoraProduct extends Product {
+@Schema({ timestamps: true })
+export class PanificadoraProduct {
+  @Prop()
+  title: string;
+
+  @Prop()
+  description: string;
+
+  @Prop()
+  urlImage: string;
+
+  @Prop()
+  price: number;
+
+  @Prop()
+  public_id: string;
+
+  @Prop({
+    default: () => new Date(),
+  })
+  createdAt: Date;
+
+  @Prop({
+    default: () => new Date(),
+  })
+  updatedAt: Date;
+
   @Prop({ default: 'Panificadora UCSM' })
   place: string;
 }

@@ -7,7 +7,7 @@ import { UpdateElcholoUcsmDto } from './dto/update-elcholo-ucsm.dto';
 import { ElcholoProduct } from './entities/elcholo-ucsm.entity';
 import { CloudinaryService } from '../cloudinary/cloudinary.service';
 import { CloudinaryResponse } from '../cloudinary/cloudinary-response';
-import { ImageProduct } from 'src/shared/models/image.model';
+import { ImageProduct } from 'src/utils/models/image.model';
 
 @Injectable()
 export class ElcholoUcsmService {

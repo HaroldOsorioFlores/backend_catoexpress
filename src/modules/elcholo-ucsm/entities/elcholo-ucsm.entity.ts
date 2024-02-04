@@ -1,11 +1,34 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
-import { Product } from 'src/shared/common/base-product.entity';
 
 export type elcholoProductDocument = HydratedDocument<ElcholoProduct>;
 
-@Schema()
-export class ElcholoProduct extends Product {
+@Schema({ timestamps: true })
+export class ElcholoProduct {
+  @Prop()
+  title: string;
+
+  @Prop()
+  description: string;
+
+  @Prop()
+  urlImage: string;
+
+  @Prop()
+  price: number;
+
+  @Prop()
+  public_id: string;
+
+  @Prop({
+    default: () => new Date(),
+  })
+  createdAt: Date;
+
+  @Prop({
+    default: () => new Date(),
+  })
+  updatedAt: Date;
   @Prop({ default: 'El Cholo UCSM' })
   place: string;
 }

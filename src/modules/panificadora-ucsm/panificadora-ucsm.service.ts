@@ -7,7 +7,7 @@ import { CreatePanificadoraUcsmDto } from './dto/create-panificadora-ucsm.dto';
 import { UpdatePanificadoraUcsmDto } from './dto/update-panificadora-ucsm.dto';
 import { PanificadoraProduct } from './entities/panificadora-ucsm.entity';
 import { CloudinaryResponse } from '../cloudinary/cloudinary-response';
-import { ImageProduct } from 'src/shared/models/image.model';
+import { ImageProduct } from 'src/utils/models/image.model';
 
 @Injectable()
 export class PanificadoraUcsmService {

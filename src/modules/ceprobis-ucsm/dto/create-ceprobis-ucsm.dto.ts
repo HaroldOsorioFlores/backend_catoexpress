@@ -1,3 +1,16 @@
-import { ProductDto } from 'src/shared/common/base-create-product.dto';
+import { Transform } from 'class-transformer';
+import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
-export class CreateCeprobisUcsmDto extends ProductDto {}
+export class CreateCeprobisUcsmDto {
+  @IsNotEmpty()
+  @IsString()
+  title: string;
+
+  @IsNotEmpty()
+  @IsString()
+  description: string;
+
+  @IsNumber()
+  @Transform(({ value }) => parseFloat(value)) // Convierte la cadena a número
+  price: string;
+}

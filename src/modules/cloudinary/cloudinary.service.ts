@@ -3,8 +3,8 @@ import { v2 as cloudinary } from 'cloudinary';
 const streamifier = require('streamifier');
 
 import { CloudinaryResponse } from './cloudinary-response';
-import { Product } from 'src/shared/common/base-product.entity';
-import { ImageProduct } from 'src/shared/models/image.model';
+import { ImageProduct } from 'src/utils/models/image.model';
+import { Product } from './product.mode';
 
 @Injectable()
 export class CloudinaryService {
