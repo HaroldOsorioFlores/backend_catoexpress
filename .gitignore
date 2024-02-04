@@ -38,6 +38,5 @@ lerna-debug.log*
 # PROJECT API
 /data
 script-init.js
-.dockerignore
 .env
 .vercel
