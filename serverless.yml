@@ -1,0 +1,35 @@
+service: prueba5
+
+useDotenv: true
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  region: us-west-1
+  profile: harold # Comentario: Elimina esta línea
+  stage: production
+  memorySize: 2048
+  logRetentionInDays: 1
+  timeout: 15
+  environment:
+    MONGO_URL_NESTJS: ${env:MONGO_URL_NESTJS}
+    CLOUDINARY_NAME: ${env:CLOUDINARY_NAME}
+    CLOUDINARY_API_KEY: ${env:CLOUDINARY_API_KEY}
+    CLOUDINARY_API_SECRET: ${env:CLOUDINARY_API_SECRET}
+
+package:
+  individually: true
+
+functions:
+  main:
+    handler: dist/main.handler
+    events:
+      - http:
+          method: ANY
+          path: /
+      - http:
+          method: ANY
+          path: '{proxy+}'
