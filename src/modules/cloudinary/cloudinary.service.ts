@@ -4,7 +4,7 @@ const streamifier = require('streamifier');
 
 import { CloudinaryResponse } from './cloudinary-response';
 import { ImageProduct } from 'src/utils/models/image.model';
-import { Product } from './product.mode';
+import { ProductEntity } from 'src/utils/product.entity';
 
 @Injectable()
 export class CloudinaryService {
@@ -27,7 +27,7 @@ export class CloudinaryService {
   }
 
   async updateFile(
-    product: Product,
+    product: ProductEntity,
     file: Express.Multer.File,
   ): Promise<ImageProduct> {
     if (file) {

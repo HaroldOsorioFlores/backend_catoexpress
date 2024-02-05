@@ -1,16 +1,3 @@
-import { Transform } from 'class-transformer';
-import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { ProductDto } from 'src/utils/product.dto';
 
-export class CreatePanificadoraUcsmDto {
-  @IsNotEmpty()
-  @IsString()
-  title: string;
-
-  @IsNotEmpty()
-  @IsString()
-  description: string;
-
-  @IsNumber()
-  @Transform(({ value }) => parseFloat(value)) // Convierte la cadena a número
-  price: string;
-}
+export class CreatePanificadoraUcsmDto extends ProductDto {}
