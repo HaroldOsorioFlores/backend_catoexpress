@@ -40,3 +40,5 @@ lerna-debug.log*
 script-init.js
 .env
 .vercel
+.serverless
+

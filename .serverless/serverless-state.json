@@ -14,7 +14,7 @@
       "logRetentionInDays": 1,
       "timeout": 15,
       "environment": {
-        "MONGO_URL_NESTJS": "mongodb+srv://haroldosorio32:PF4hkmd4DYMvkwdp@catoexpress.45dat50.mongodb.net/catoexpress?retryWrites=true&w=majority",
+        "MONGO_URL_NESTJS": "mongodb://catoexpress:qOHUDyxZE3vzkY1f5xAH95DKG4yJG1LAOVVyKjnMVCZHy7Z7k5VeJN4GQot2iX0ntvrl2yvUZh9RACDbnAmkOQ%3D%3D@catoexpress.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&maxIdleTimeMS=120000&appName=@catoexpress@",
         "CLOUDINARY_NAME": "dqrtitrrs",
         "CLOUDINARY_API_KEY": "413518755139736",
         "CLOUDINARY_API_SECRET": "OKX51NTAoX92JbAfLD7lQEKP_XI"
@@ -185,7 +185,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/prueba5/production/1707119652446-2024-02-05T07:54:12.446Z/main.zip"
+                "S3Key": "serverless/prueba5/production/1707154080342-2024-02-05T17:28:00.342Z/main.zip"
               },
               "Handler": "dist/main.handler",
               "Runtime": "nodejs20.x",
@@ -194,7 +194,7 @@
               "Timeout": 15,
               "Environment": {
                 "Variables": {
-                  "MONGO_URL_NESTJS": "mongodb+srv://haroldosorio32:PF4hkmd4DYMvkwdp@catoexpress.45dat50.mongodb.net/catoexpress?retryWrites=true&w=majority",
+                  "MONGO_URL_NESTJS": "mongodb://catoexpress:qOHUDyxZE3vzkY1f5xAH95DKG4yJG1LAOVVyKjnMVCZHy7Z7k5VeJN4GQot2iX0ntvrl2yvUZh9RACDbnAmkOQ%3D%3D@catoexpress.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&maxIdleTimeMS=120000&appName=@catoexpress@",
                   "CLOUDINARY_NAME": "dqrtitrrs",
                   "CLOUDINARY_API_KEY": "413518755139736",
                   "CLOUDINARY_API_SECRET": "OKX51NTAoX92JbAfLD7lQEKP_XI"
@@ -211,7 +211,7 @@
               "MainLogGroup"
             ]
           },
-          "MainLambdaVersiontTB8ZKmonL4J9uJtNKlKAZxMtJpJ8X5p6bcw3qi3rs": {
+          "MainLambdaVersionATRXJ32qgqFDJDaXe4ArMLJuIDOsnUvTRWr6A8Her4E": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
@@ -343,7 +343,7 @@
               "MainLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1707119584695": {
+          "ApiGatewayDeployment1707154023754": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -406,7 +406,7 @@
           "MainLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "MainLambdaVersiontTB8ZKmonL4J9uJtNKlKAZxMtJpJ8X5p6bcw3qi3rs"
+              "Ref": "MainLambdaVersionATRXJ32qgqFDJDaXe4ArMLJuIDOsnUvTRWr6A8Her4E"
             },
             "Export": {
               "Name": "sls-prueba5-production-MainLambdaFunctionQualifiedArn"
@@ -549,13 +549,13 @@
         ],
         "name": "prueba5-production-main",
         "package": {
-          "artifact": "D:\\gonza\\Desarrollo\\CatoExpress\\aws-localstack\\azure-prueba1\\.serverless\\main.zip"
+          "artifact": "D:\\gonza\\Desarrollo\\CatoExpress\\aws-localstack\\aws-prueba3\\.serverless\\main.zip"
         },
         "memory": 2048,
         "timeout": 15,
         "runtime": "nodejs20.x",
         "vpc": {},
-        "versionLogicalId": "MainLambdaVersiontTB8ZKmonL4J9uJtNKlKAZxMtJpJ8X5p6bcw3qi3rs"
+        "versionLogicalId": "MainLambdaVersionATRXJ32qgqFDJDaXe4ArMLJuIDOsnUvTRWr6A8Her4E"
       }
     },
     "configValidationMode": "warn",
@@ -572,7 +572,7 @@
       "package": {
         "individually": true,
         "artifactsS3KeyDirname": "serverless/prueba5/production/code-artifacts",
-        "artifactDirectoryName": "serverless/prueba5/production/1707119652446-2024-02-05T07:54:12.446Z"
+        "artifactDirectoryName": "serverless/prueba5/production/1707154080342-2024-02-05T17:28:00.342Z"
       },
       "functions": {
         "$ref": "$[\"service\"][\"functions\"]"
@@ -583,7 +583,7 @@
   },
   "package": {
     "individually": true,
-    "artifactDirectoryName": "serverless/prueba5/production/1707119652446-2024-02-05T07:54:12.446Z",
+    "artifactDirectoryName": "serverless/prueba5/production/1707154080342-2024-02-05T17:28:00.342Z",
     "artifact": ""
   }
 }
